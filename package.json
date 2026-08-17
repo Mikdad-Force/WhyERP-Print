@@ -1,0 +1,39 @@
+{
+  "name": "why-bridge-print",
+  "version": "1.0.0",
+  "description": "WhyERP Print Bridge — cetak resi/karton langsung dari printer tanpa pop-up",
+  "main": "main.js",
+  "author": "WhyERP",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win portable",
+    "dist:nsis": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.why.bridgeprint",
+    "productName": "WhyERP Print Bridge",
+    "files": [
+      "main.js"
+    ],
+    "win": {
+      "target": [
+        "portable"
+      ]
+    },
+    "portable": {
+      "artifactName": "WhyERP-Print-Bridge.exe"
+    },
+    "nsis": {
+      "artifactName": "WhyERP-Print-Bridge-Setup.exe",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "WhyERP Print Bridge"
+    }
+  }
+}
