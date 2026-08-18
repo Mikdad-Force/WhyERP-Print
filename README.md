@@ -41,3 +41,14 @@ npm start
 | GET | `/ping` | Cek apakah bridge berjalan |
 | GET | `/printers` | Daftar printer terpasang |
 | POST | `/print` | Kirim `{ "html": "<html>..." }` untuk dicetak langsung |
+
+## Troubleshooting (EXE tidak muncul / tidak jalan di Windows)
+
+1. **SmartScreen Windows** → saat pertama kali jalan, klik **More info → Run anyway**. Aplikasi belum ditandatangani sehingga Windows bisa memblokirnya.
+2. **Aplikasi sudah berjalan tapi tidak terlihat** → aplikasi hanya punya ikon di system tray (panah `^` dekat jam). Klik `^` lalu cari ikon printer. Aplikasi tidak membuka jendela (kecuali ada error).
+3. **Cek log** → semua aktivitas dan error tercatat di `logs.txt`:
+   - Tekan `Win + R`, ketik `%APPDATA%\why-bridge-print\logs.txt`, Enter.
+   - Atau klik kanan ikon tray → **Buka Log**.
+4. **Port 8123 terpakai** → aplikasi otomatis mencoba port 8124–8130; lihat log untuk port aktual. Pastikan hanya satu instance yang jalan (kunci instance otomatis mencegah duplikat).
+5. **Tray icon tidak muncul** → jika gagal membuat tray, aplikasi membuka jendela kecil berisi status + lokasi log agar tidak "hilang" diam-diam.
+6. **Aplikasi versi lama** → Electron 31 butuh **Windows 10 1809 ke atas**. Upgrade Windows bila versinya lebih lama.

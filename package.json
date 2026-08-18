@@ -18,9 +18,14 @@
     "appId": "com.why.bridgeprint",
     "productName": "WhyERP Print Bridge",
     "files": [
-      "main.js"
+      "main.js",
+      "package.json"
     ],
+    "directories": {
+      "output": "dist"
+    },
     "win": {
+      "icon": "build/icon.png",
       "target": [
         "portable"
       ]
